@@ -17,8 +17,12 @@
               <span>{{ currentTime.day }}&nbsp;日&nbsp;</span>
               <span class="sm-hidden">{{ currentTime.weekday }}</span>
             </div>
-            <div class="text">
-              <span> {{ currentTime.hour }}:{{ currentTime.minute }}:{{ currentTime.second }}</span>
+            <div class="text time-wrapper">
+              <span>{{ currentTime.hour }}</span>
+              <span class="colon">:</span>
+              <span>{{ currentTime.minute }}</span>
+              <span class="colon">:</span>
+              <span>{{ currentTime.second }}</span>
             </div>
           </div>
           <Weather />
@@ -114,25 +118,62 @@ onBeforeUnmount(() => {
       justify-content: space-between;
       animation: fade 0.5s;
       .time {
-        font-size: 1.1rem;
-        text-align: center;
         .date {
           text-overflow: ellipsis;
           overflow-x: hidden;
           white-space: nowrap;
+          color: #e2a5bc;
+          font-size: 1.1rem;
+          text-shadow: 0 0 10px rgba(226, 165, 188, 0.5);
+          letter-spacing: 1px;
+          font-weight: 500;
+          text-align: center;
         }
-        .text {
+
+        .time-wrapper {
           margin-top: 10px;
-          font-size: 3.25rem;
+          font-size: 3.5rem;
+          font-weight: bold;
           letter-spacing: 2px;
-          font-family: "UnidreamLED";
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 0.2rem;
+          font-family: 'Josefin Sans', sans-serif;
+
+          span {
+            background: linear-gradient(45deg, #ff6eb4 10%, #a05aff 90%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 3px 3px 15px rgba(255, 110, 180, 0.3);
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+          }
+
+          .colon {
+            font-size: 3rem;
+            margin: 0 0.1rem;
+            color: #ff6eb4;
+            -webkit-text-fill-color: #ff6eb4;
+            animation: blink 1.5s ease-in-out infinite;
+            opacity: 0.8;
+          }
+
+          &:hover span {
+            animation-play-state: paused;
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+          }
         }
+
         @media (min-width: 1201px) and (max-width: 1280px) {
-          font-size: 1rem;
+          .time-wrapper {
+            font-size: 3rem;
+          }
         }
+
         @media (min-width: 911px) and (max-width: 992px) {
-          font-size: 1rem;
-          .text {
+          .time-wrapper {
             font-size: 2.75rem;
           }
         }
@@ -145,6 +186,35 @@ onBeforeUnmount(() => {
         white-space: nowrap;
       }
     }
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>
