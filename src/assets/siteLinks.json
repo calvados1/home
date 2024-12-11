@@ -15,6 +15,11 @@
     "link": "https://ai.yinnierqi.eu.org/"
   },
   {
+    "icon": "BookOpen",
+    "name": "阅读",
+    "link": "https://web.koodoreader.com/#/manager/home"
+  },
+  {
     "icon": "Images",
     "name": "图床",
     "link": "https://images.yinnierqi.eu.org/"
