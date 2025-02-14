@@ -22,12 +22,22 @@
   {
     "icon": "BookOpen",
     "name": "阅读",
-    "link": "https://web.koodoreader.com/#/manager/home"
+    "link": "https://web.readest.com/library"
   },
   {
     "icon": "Images",
     "name": "图床",
     "link": "https://images.yinnierqi.eu.org/"
+  },
+  {
+    "icon": "Dragon",
+    "name": "青龙",
+    "link": "https://ql.yinnierqi.eu.org/"
+  },
+  {
+    "icon": "CalendarAltRegular",
+    "name": "日历",
+    "link": "https://calendar.yinnierqi.eu.org/"
   },
   {
     "icon": "CompactDisc",
